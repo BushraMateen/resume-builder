@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_173435) do
+ActiveRecord::Schema.define(version: 2022_01_09_193545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,10 @@ ActiveRecord::Schema.define(version: 2022_01_09_173435) do
     t.string "position"
     t.date "startdate"
     t.date "enddate"
-    t.string "Description"
+    t.string "description"
     t.bigint "profile_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["profile_id"], name: "index_experiences_on_profile_id", unique: true
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -56,8 +55,8 @@ ActiveRecord::Schema.define(version: 2022_01_09_173435) do
   create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "projectURL"
-    t.string "Techstack"
-    t.string "Description"
+    t.string "techstack"
+    t.string "description"
     t.bigint "experiences_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

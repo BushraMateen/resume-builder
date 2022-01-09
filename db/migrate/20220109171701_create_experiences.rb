@@ -5,7 +5,7 @@ class CreateExperiences < ActiveRecord::Migration[6.1]
       t.string :position
       t.date :startdate
       t.date :enddate
-      t.string :Description
+      t.string :description
 
       t.belongs_to :profile, index: { unique: true }, foreign_key: true
 
