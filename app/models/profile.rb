@@ -14,6 +14,6 @@ class Profile < ApplicationRecord
    # belongs_to :user
 
     def reject_experience_create(experience)
-        experience[:company].blank? or experience[:position].blank? or experience[:start].blank? or experience[:end].blank?
+        experience[:company].blank? or experience[:position].blank? or experience[:startdate].blank? or experience[:enddate].blank?
     end
 end

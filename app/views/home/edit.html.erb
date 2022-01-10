@@ -35,12 +35,6 @@
         <%= render 'shared/edit_section', title: "Experiences" do %>
             <%= f.fields_for :experiences do |experience| %>
                 <%= render 'shared/input/experience', experience: experience %>
-                <%= render 'shared/edit_section', title: "Projects" do %>
-                    <%= f.fields_for :projects do |project| %>
-                        <%= render 'shared/input/project', project: project %>
-                    <% end %><br />
-                    <%= render 'shared/input/buttons/add', label: "+ Add Project", path: "/projects/new" %>
-                <% end %>
             <% end %><br />
             <%= render 'shared/input/buttons/add', label: "+ Add Experience", path: "/experiences/new" %>
             

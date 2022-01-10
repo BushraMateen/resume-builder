@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
     def new
+
     end
   
     def create
@@ -10,7 +11,9 @@ class SessionsController < ApplicationController
             redirect_to(root_path)
         else
             flash.now[:danger] = 'Invalid email/password combination'
-            render('new')
+            #render('new')
+            redirect_to(signup_url)
+
         end
     end
   
