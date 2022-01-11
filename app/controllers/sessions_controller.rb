@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   
     def new
-
     end
   
     def create
@@ -13,7 +12,6 @@ class SessionsController < ApplicationController
             flash.now[:danger] = 'Invalid email/password combination'
             #render('new')
             redirect_to(signup_url)
-
         end
     end
   

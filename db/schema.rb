@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_193545) do
+ActiveRecord::Schema.define(version: 2022_01_11_063040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 2022_01_09_193545) do
   create_table "experiences", force: :cascade do |t|
     t.string "company"
     t.string "position"
-    t.date "startdate"
-    t.date "enddate"
-    t.string "description"
+    t.text "description"
+    t.date "start"
+    t.date "end"
     t.bigint "profile_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_experiences_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -57,10 +58,10 @@ ActiveRecord::Schema.define(version: 2022_01_09_193545) do
     t.string "projectURL"
     t.string "techstack"
     t.string "description"
-    t.bigint "experiences_id"
+    t.bigint "experience_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["experiences_id"], name: "index_projects_on_experiences_id", unique: true
+    t.index ["experience_id"], name: "index_projects_on_experience_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,5 +76,4 @@ ActiveRecord::Schema.define(version: 2022_01_09_193545) do
   add_foreign_key "educations", "profiles"
   add_foreign_key "experiences", "profiles"
   add_foreign_key "profiles", "users"
-  add_foreign_key "projects", "experiences", column: "experiences_id"
 end
