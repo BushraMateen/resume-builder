@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
       @user = User.new(user_params)
       @user.profile = Profile.new
+      
       if @user.save
         # Handle a successful save.
         
